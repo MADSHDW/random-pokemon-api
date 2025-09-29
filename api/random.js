@@ -1,10 +1,8 @@
-const { list } = require("./list");
+const list = require("./list");  // import the list from list.js
 
-export default function handler(req, res) {
-  // Pick a random Pokémon
+module.exports = (req, res) => {
   const random = list[Math.floor(Math.random() * list.length)];
-
-  // Return plain text
-  res.setHeader('Content-Type', 'text/plain');
+  
+  res.setHeader("Content-Type", "text/plain");
   res.status(200).send(random);
-}
+};
